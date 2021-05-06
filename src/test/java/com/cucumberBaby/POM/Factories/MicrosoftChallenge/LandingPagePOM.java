@@ -89,14 +89,14 @@ public class LandingPagePOM extends mapBasePOM {
         if (find(landingPageMap.windows10ContextMenuElement)) {
 
             landingPageMap.windows10ContextNavElement.forEach((e) -> {
-                find(e);
+                //find(e);
                 System.out.println(e.getText().toString());
 
                 }
 
             );
-
             return true;
+
         } else
         return false;
     }

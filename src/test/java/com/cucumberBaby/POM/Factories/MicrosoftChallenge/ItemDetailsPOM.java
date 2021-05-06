@@ -11,6 +11,7 @@ public class ItemDetailsPOM extends mapBasePOM {
         System.out.println("LOG:Compare:"+crossScenarioValues.get(itemPriceSearch)+ " == "+ crossScenarioValues.get(itemPriceDetail));
 
         clickElement(landingPageMap.marketSignCancel);
+        clickElement(landingPageMap.marketCancel);
 
         return crossScenarioValues.get(itemPriceSearch).equals(crossScenarioValues.get(itemPriceDetail));
     }
