@@ -18,25 +18,26 @@ public class landingMSDef {
         landingPagePOM.setRegionMSChallenge();
         landingPagePOM.reachLandingPage();
         landingPagePOM.isLandingPage();
-        softAssert.assertTrue(landingPagePOM.isLandingPage());
+        softAssert.assertTrue(landingPagePOM.isLandingPage(), "userLandsMSFrontPage");
+
     }
 
 
     @Then ("^verifies persistent tab menu exists MS365, Office, Windows, Surface, XBox, Deals and Support$")
     public void userVerifiesMSFrontPage(){
-        softAssert.assertTrue(landingPagePOM.isLandingPageNavBar());
+        softAssert.assertTrue(landingPagePOM.isLandingPageNavBar(), "userVerifiesMSFrontPage");
     }
 
 
     @Given("^User reaches Windows page$")
     public void userReachesWindowsPage() {
-        softAssert.assertTrue(landingPagePOM.reachWindowsPage());
+        softAssert.assertTrue(landingPagePOM.reachWindowsPage(), "userReachesWindowsPage");
 
     }
 
     @When("^shows Windows context Menu$")
     public void showsWindowsContextMenu() {
-        softAssert.assertTrue(landingPagePOM.showWindowsMenu());
+        softAssert.assertTrue(landingPagePOM.showWindows10Menu(), "showsWindowsContextMenu");
         softAssert.assertAll();
     }
 

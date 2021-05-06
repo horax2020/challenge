@@ -28,6 +28,9 @@ public class LandingPageMap {
  @FindBy(xpath = "//button[@type='button' and contains(., 'Computers')]") public WebElement computersNavElement;
 
  @FindBy(xpath = "//*[@id=\"uhf-g-nav\"]/ul/li[2]/div/ul") public WebElement windows10ContextMenuElement;
+
+ //@FindBy(xpath = "//*[@id=\"uhf-g-nav\"]/ul/li/div/ul") public WebElement windows10ContextMenuElement;
+
  @FindBy(xpath = "//*[@id=\"uhf-g-nav\"]/ul/li[2]/div/ul//li[contains(@class, \"js-nav-menu\")]") public List<WebElement> windows10ContextNavElement;
 
  @FindBy(xpath = "//button[@id='search']") public WebElement searchMagnifier;

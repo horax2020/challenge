@@ -27,10 +27,8 @@ public class LandingPagePOM extends mapBasePOM {
 
         System.out.print(landingPageMap.driver.getTitle());
 
-        if (landingPageMap.driver.getTitle().toString().equals("Explore Windows 10 OS, Computers, Apps, & More | Microsoft"))
-            return true;
-        else
-            return false;
+        return landingPageMap.driver.getTitle().equals("Explore Windows 10 OS, Computers, Apps, & More | Microsoft");
+
     }
 
 
@@ -77,28 +75,25 @@ public class LandingPagePOM extends mapBasePOM {
         return(isWindowsPage());
     }
 
-    public boolean isWindows10Menu() {
-
+    /*public boolean isWindows10Menu() {
 
         return false;
-    }
-    public boolean showWindowsMenu() {
+    }*/
+    public boolean showWindows10Menu() {
 
         clickElement(landingPageMap.windows10NavElement);
-
         if (find(landingPageMap.windows10ContextMenuElement)) {
-
             landingPageMap.windows10ContextNavElement.forEach((e) -> {
                 //find(e);
                 System.out.println(e.getText().toString());
 
                 }
-
             );
-            return true;
+        }
 
-        } else
-        return false;
+        boolean r;
+        r = find(landingPageMap.windows10ContextMenuElement);
+        return r;
     }
 
     public boolean showSearchResults(String valToSearch) {

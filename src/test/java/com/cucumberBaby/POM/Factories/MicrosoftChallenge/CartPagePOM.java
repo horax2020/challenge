@@ -38,6 +38,8 @@ public class CartPagePOM extends mapBasePOM {
         mySleep(5);
 
         find(cartPageMap.priceItemElement);
+        find(cartPageMap.subtotalSummaryElement);
+        find(cartPageMap.totalSummaryElement);
 
         crossScenarioValues.put(itemPriceCart, cartPageMap.priceItemElement.getText());
         crossScenarioValues.put(itemSubtotalCart, cartPageMap.subtotalSummaryElement.getText());

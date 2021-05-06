@@ -89,12 +89,13 @@ public class mapBasePOM {
             System.out.println("LOG:finding:" + element.toString());
 
             wait = new FluentWait<WebDriver>(driver)
-                    .withTimeout(Duration.ofSeconds(10))
-                    .pollingEvery(Duration.ofSeconds(5))
+                    .withTimeout(Duration.ofSeconds(6))
+                    .pollingEvery(Duration.ofSeconds(2))
                     .ignoring(NoSuchElementException.class)
                     .ignoring(TimeoutException.class);
 
             wait.until(ExpectedConditions.visibilityOf(element));
+            System.out.println("LOG:Found:" + element.toString());
             return element.isEnabled();
         }catch(Exception e) {
             System.out.println("LOG:Not found:" + element.toString());
