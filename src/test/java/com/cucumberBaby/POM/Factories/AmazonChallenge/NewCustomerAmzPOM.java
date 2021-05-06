@@ -8,7 +8,10 @@ public class NewCustomerAmzPOM extends mapBasePOM {
 
     }
 
-    public void navigateToConditionOfUse(){
-        clickElement(createAccountPageAmzMap.conditionsOfUseElement);
+    public boolean navigateToConditionOfUse(){
+        boolClickElement(createAccountPageAmzMap.conditionsOfUseElement);
+        System.out.println("LOG:Condition of Use:"+ driver.getTitle());
+        return driver.getTitle().equals("Amazon.com Help: Conditions of Use");
+
     }
 }

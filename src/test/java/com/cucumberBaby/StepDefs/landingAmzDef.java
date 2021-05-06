@@ -9,6 +9,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.apache.tools.ant.taskdefs.Echo;
+import org.testng.asserts.SoftAssert;
 
 
 public class landingAmzDef {
@@ -18,18 +19,19 @@ public class landingAmzDef {
         private EchoPageAmzPOM echoPageAmzPOM = new EchoPageAmzPOM();
         private NewCustomerAmzPOM newCustomerAmzPOM = new NewCustomerAmzPOM();
         private ConditionsOfUseAmzPOM conditionsOfUseAmzPOM = new ConditionsOfUseAmzPOM();
+        private SoftAssert softAssert = new SoftAssert();
 
         @Given("^User lands Amazon front page$")
         public void userLandsAmazonFrontPage() {
             landingAmzPOM.setRegionAmzChallenge();
-            landingAmzPOM.landingAmazon();
+            softAssert.assertTrue(landingAmzPOM.landingAmazon());
         }
 
 
         @When("^navigates to New Customer$")
         public void navigatesToNewCustomer() {
-            landingAmzPOM.navigateToSignIn();
-            signInAmzPOM.navigateToNewCustomer();
+            softAssert.assertTrue(landingAmzPOM.navigateToSignIn());
+            softAssert.assertTrue(signInAmzPOM.navigateToNewCustomer());
         }
 
 
@@ -41,29 +43,30 @@ public class landingAmzDef {
 
         @And("^navigates to Condition of Use$")
         public void navigatesToConditionOfUse() {
-            newCustomerAmzPOM.navigateToConditionOfUse();
+            softAssert.assertTrue(newCustomerAmzPOM.navigateToConditionOfUse());
 
         }
 
         @Given("User lands Condition of use")
         public void userLandsConditionOfUse() {
-            conditionsOfUseAmzPOM.isConditionsOfUse();
+            softAssert.assertTrue(conditionsOfUseAmzPOM.isConditionsOfUse());
         }
 
         @When("search for Echo")
         public void searchForEcho() {
-            conditionsOfUseAmzPOM.searchFor("echo");
+            softAssert.assertTrue(conditionsOfUseAmzPOM.searchFor("echo"));
         }
 
         @And("click over Echo Support")
         public void clickOverEchoSupport() {
-            conditionsOfUseAmzPOM.navigateSearchResult("Echo Support");
+            softAssert.assertTrue(conditionsOfUseAmzPOM.navigateSearchResult("Echo Support"));
 
         }
 
 
         @Then("Validate existing elements")
         public void validateExistingElements() {
-            echoPageAmzPOM.validateElements();
+            softAssert.assertTrue(echoPageAmzPOM.validateElements());
+            softAssert.assertAll();
         }
 }

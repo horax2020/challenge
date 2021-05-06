@@ -22,13 +22,14 @@ public class EchoPageAmzPOM extends mapBasePOM {
         return false;
     }
 
-    public void validateElements(){
+    public boolean validateElements(){
         //Getting Started, Wi-Fi and Bluetooth, Device Software and Hardware, TroubleShooting
-        findElementFromList(echoPageAmzMap.topicListElements, "Getting Started");
-        findElementFromList(echoPageAmzMap.topicListElements, "Wi-Fi and Bluetooth");
-        findElementFromList(echoPageAmzMap.topicListElements, "Device Software and Hardware");
-        findElementFromList(echoPageAmzMap.topicListElements, "TroubleShooting");
+        if (findElementFromList(echoPageAmzMap.topicListElements, "Getting Started") &&
+        findElementFromList(echoPageAmzMap.topicListElements, "Wi-Fi and Bluetooth") &&
+        findElementFromList(echoPageAmzMap.topicListElements, "Device Software and Hardware") &&
+        findElementFromList(echoPageAmzMap.topicListElements, "TroubleShooting")) return true;
 
 
+        return false;
     }
 }

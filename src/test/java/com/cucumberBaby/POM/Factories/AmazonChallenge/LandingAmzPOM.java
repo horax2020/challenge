@@ -9,12 +9,14 @@ public class LandingAmzPOM extends mapBasePOM {
         mapBasePOM.region = new ReadPropertyFiles("prod_chl2");
     }
 
-    public void landingAmazon(){
+    public boolean landingAmazon(){
         driver.get(region.valueProperty);
+        System.out.println(driver.getTitle());
+        return landingPageAmzMap.driver.getTitle().equals("Amazon.com: Online Shopping for Electronics, Apparel, Computers, Books, DVDs & more");
     }
 
-    public void navigateToSignIn() {
-        clickElement(landingPageAmzMap.accountListNavElement);
+    public boolean navigateToSignIn() {
+        return boolClickElement(landingPageAmzMap.accountListNavElement);
     }
 
 

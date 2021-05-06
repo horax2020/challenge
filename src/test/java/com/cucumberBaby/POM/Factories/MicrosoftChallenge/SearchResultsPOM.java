@@ -10,11 +10,8 @@ public class SearchResultsPOM extends mapBasePOM {
             crossScenarioValues.put(itemPriceSearch, searchResultsMap.searchItemsElements.get(0).getText());
             System.out.println("LOG:Item Price In Search Result:"+ crossScenarioValues.get(itemPriceSearch));
 
+            return boolClickElement(searchResultsMap.searchItemsElements.get(0));
 
-
-            searchResultsMap.searchItemsElements.get(0).click();
-
-        return false;
     }
 
 }

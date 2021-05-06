@@ -7,13 +7,14 @@ import org.openqa.selenium.WebElement;
 
 public class ConditionsOfUseAmzPOM extends mapBasePOM {
 
-    public void searchFor(String s){
+    public boolean searchFor(String s){
         clickElement(conditionsOfUsePageAmzMap.couSearchElement);
         writeText(conditionsOfUsePageAmzMap.couSearchElement, s);
         conditionsOfUsePageAmzMap.couSearchElement.sendKeys(Keys.RETURN);
+        return find(conditionsOfUsePageAmzMap.resultListElements.get(0));
     }
 
-    public void navigateSearchResult(String s){
+    public boolean navigateSearchResult(String s){
 
         conditionsOfUsePageAmzMap.resultListElements.forEach((e) ->
                 System.out.println(e.getText().toString()));
@@ -22,8 +23,11 @@ public class ConditionsOfUseAmzPOM extends mapBasePOM {
             if (conditionsOfUsePageAmzMap.resultListElements.get(idx).getText().equals(s)) {
                 System.out.println("LOG:Found a Match:" + conditionsOfUsePageAmzMap.resultListElements.get(idx).getText());
                 clickElement(conditionsOfUsePageAmzMap.resultListElements.get(idx));
+                return(true);
             }
         }
+
+        return false;
 
     }
 
